@@ -343,3 +343,31 @@ div.pendiente, p.pendiente { padding: 12px 16px; display: block; }
 .datos-libro { font-size: 1rem; color: var(--tinta-suave); margin-bottom: 6px; }
 .precio { font-family: var(--titulos); font-weight: 600; font-size: 1.5rem; color: var(--violeta); margin: 0; }
 @media (max-width: 560px) { .libro { grid-template-columns: 1fr; } .libro__portada { max-width: 200px; } }
+
+/* --- Ajustes anti desborde horizontal (nov 2026) --- */
+body { overflow-wrap: break-word; overflow-x: clip; }
+.rejilla > *, .dos-col > *, .portada__rejilla > *, .directora > *, .banda > *, .programa > *, .pie__rejilla > *, .libro > * { min-width: 0; }
+/* La cabecera no crece con «A+ Letra», para que siempre quepa */
+.cabecera .nav a { font-size: 18px; }
+.cabecera .boton, .cabecera .boton-letra, .cabecera .boton-menu { font-size: 17px; }
+.cabecera__fila > .logo { flex: 0 1 auto; min-width: 0; }
+.herramientas { flex: none; }
+@media (max-width: 1360px) {
+  .boton-menu { display: inline-flex; min-height: 48px; padding: 8px 16px; gap: 8px; align-items: center; border-radius: var(--radio-s); border: 2px solid var(--borde-control); background: transparent; color: var(--tinta); font-family: var(--titulos); font-weight: 600; cursor: pointer; }
+  .nav { display: none; position: absolute; left: 0; right: 0; top: 100%; background: var(--fondo-elevado); border-bottom: 1px solid var(--linea); flex-direction: column; align-items: stretch; padding: 8px 16px 20px; }
+  .nav.abierto { display: flex; }
+  .nav a { padding: 12px 8px; border-bottom: 1px solid var(--linea); border-radius: 0; }
+  .nav a[aria-current="page"] { box-shadow: inset 4px 0 0 var(--ambar); padding-left: 16px; }
+}
+@media (max-width: 420px) {
+  .logo img { width: 128px; }
+  .cabecera__fila { gap: 6px; }
+  .herramientas { gap: 4px; }
+  .boton-letra { min-width: 46px; padding: 6px 8px; }
+  .cabecera .boton--whatsapp { min-width: 46px; padding: 10px; }
+  .boton-menu { padding: 8px 10px; }
+}
+@media (max-width: 359px) {
+  .logo img { width: 44px; }
+}
+.dato > div { min-width: 0; }
